@@ -1,12 +1,29 @@
 const quotes = [
-  "Будь собой — прочие роли уже заняты. — Оскар Уайльд",
-  "Самое трудное — решиться действовать, остальное — упорство. — Амелия Эрхарт",
-  "Великие дела не делаются в одиночку. — Стив Джобс",
-  "Кто хочет — ищет возможности. Кто не хочет — ищет оправдания.",
-  "Не позволяй страху остановить тебя на пути к мечте.",
+  {
+    quote: "Будь собой — прочие роли уже заняты.",
+    avthor: "Оскар Уайльд",
+  },
+  {
+    quote: "Самое трудное — решиться действовать, остальное — упорство.",
+    avthor: "Амелия Эрхарт",
+  },
+  {
+    quote: "Великие дела не делаются в одиночку.",
+    avthor: "Стив Джобс",
+  },
+  {
+    quote: "Кто хочет — ищет возможности. Кто не хочет — ищет оправдания.",
+    avthor: "Стив Джобс",
+  },
+  {
+    quote: "Не позволяй страху остановить тебя на пути к мечте.",
+    avthor: "Оскар Уайльд",
+  },
 ];
 
 document.getElementById("quoteBtn").addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  document.getElementById("quote").textContent = quotes[randomIndex];
+  const selected = quotes[randomIndex];
+  document.getElementById("quote").textContent = `"${selected.quote}"`;
+  document.getElementById("avthor").textContent = `— ${selected.avthor}`;
 });

@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background: hwb(110 32% 16%);
-  color: #fff;
+  background: #121212; /* тёмный фон */
+  color: #ffffff; /* белый текст */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,24 +11,37 @@ body {
 
 .container {
   text-align: center;
-  background-color: #725656;
+  background-color: #1f1f1f; /* тёмный блок */
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(88, 39, 58, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* эффект свечения */
 }
 
-button {
+.BTN {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  background: #003cff;
+  background: #3b82f6; /* насыщенный синий */
   border: none;
   border-radius: 5px;
-  color: rgb(223, 70, 70);
+  color: #ffffff; /* белый текст */
+  transition: background 0.3s ease;
 }
 
-#quote {
+.BTN:hover {
+  background: #2563eb; /* темнее при наведении */
+}
+
+.quote {
   margin-top: 20px;
   font-size: 1.4rem;
+  color: #e0e0e0;
+}
+
+#author {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #9ca3af; /* светло-серый */
 }
