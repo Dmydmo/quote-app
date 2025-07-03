@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  background: hwb(110 32% 16%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #725656;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(88, 39, 58, 0.1);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #003cff;
+  border: none;
+  border-radius: 5px;
+  color: rgb(223, 70, 70);
+}
+
+#quote {
+  margin-top: 20px;
+  font-size: 1.4rem;
+}
