@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Цитаты</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Random Quotes</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Случайная цитата</h1>
-      <p id="quote" class="quote">Нажмите кнопку, чтобы увидеть цитату</p>
-      <p id="avthor"></p>
-      <button id="quoteBtn" class="BTN">Показать цитату</button>
+      <h1>Random Quotes</h1>
+      <p id="quote" class="quote">Click the button to get a random quote</p>
+      <p id="quote-author">(author)</p>
+      <button id="generate-btn" class="btn">Generate Quote</button>
+      <button id="toggle-favorite-btn" class="btn">Add to favorites</button>
     </div>
 
+    <div class="favorites-container" id="favorites-container">
+      <!-- Favorite quotes will be dynamically added here -->
+    </div>
     <script type="module" src="script.js"></script>
   </body>
 </html>
