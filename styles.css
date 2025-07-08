@@ -55,3 +55,9 @@ body {
 .author {
   font-style: italic;
 }
+.star-icon {
+  font-size: 30px;
+  color: chartreuse;
+  cursor: pointer;
+  vertical-align: middle;
+}
