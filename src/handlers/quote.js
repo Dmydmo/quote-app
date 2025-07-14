@@ -1,4 +1,4 @@
-import { handlFavorite } from "./Handler.js";
+import { handlFavorite } from "./favorite.js";
 import { ganerateRandomIndex } from "../utils.js";
 
 function hendelQuote(quotes, setCurrantQuote) {
