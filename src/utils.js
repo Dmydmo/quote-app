@@ -1,4 +1,4 @@
-function generatRandonInt(maxInt) {
-  return Math.floor(Math.random() * maxInt);
+function ganerateRandomIndex(Int) {
+  return Math.floor(Math.random() * Int);
 }
-export { generatRandonInt };
+export { ganerateRandomIndex };
