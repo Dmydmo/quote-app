@@ -1,25 +1,19 @@
-import { currentQuote } from "../../index.js";
+import { favoriteBtn } from "../../index.js";
 
-const favoritesContainer = document.getElementById("favorites-container");
-const favoriteBtn = document.getElementById("favorite-btn");
-favoriteBtn.addEventListener("click", () => toggleFavorite(currentQuote));
-
-hideBtn(favoriteBtn);
-
-function toggleFavorite(quote) {
+function toggleFavorite(quote, btn, container) {
   quote.isFavorite = !quote.isFavorite;
   const { text, author, isFavorite } = quote;
-  togglFavoriteBtnIcon(isFavorite, favoriteBtn);
+  togglFavoriteBtnIcon(isFavorite, btn);
 
   if (isFavorite) {
-    showFavoriteCard(text, author, favoritesContainer);
+    showFavoriteCard(text, author, container);
   } else {
-    hideFavoriteCard(currentQuote.text);
+    hideFavoriteCard(text);
   }
 }
 
 function handlFavorite(isFavorite) {
-  showBtn(favoriteBtn);
+  showFavoriteBtn(favoriteBtn);
   togglFavoriteBtnIcon(isFavorite, favoriteBtn);
 }
 
@@ -28,11 +22,11 @@ function togglFavoriteBtnIcon(isFavorite, el) {
   el.classList.toggle("far", !isFavorite);
 }
 
-function showBtn(btn) {
+function showFavoriteBtn(btn) {
   btn.style.display = "inline-block";
 }
 
-function hideBtn(btn) {
+function hideFavoriteBtn(btn) {
   btn.style.display = "none";
 }
 
@@ -56,10 +50,4 @@ function hideFavoriteCard(quote) {
   });
 }
 
-export {
-  togglFavoriteBtnIcon as toggleFavoritIcon,
-  showFavoriteCard,
-  hideFavoriteCard,
-  showBtn,
-  handlFavorite,
-};
+export { handlFavorite, toggleFavorite, hideFavoriteBtn };
