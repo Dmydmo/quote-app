@@ -1,6 +1,6 @@
 import quotes from "./src/date/quotes.js";
-import { hendelQuote } from "./src/handlers/quote.js";
 import { toggleFavorite, hideFavoriteBtn } from "./src/handlers/favorite.js";
+import { hendelQuote } from "./src/handlers/quote.js";
 
 let currentQuote = null;
 
