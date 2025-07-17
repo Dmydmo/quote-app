@@ -19,4 +19,4 @@ const generateBtn = document.getElementById("generate-btn");
 generateBtn.addEventListener("click", () =>
   hendelQuote(quotes, setCurrantQuote)
 );
-export { favoriteBtn };
+export { favoriteBtn, favoritesContainer };

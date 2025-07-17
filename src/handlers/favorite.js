@@ -1,4 +1,9 @@
-import { favoriteBtn } from "../../index.js";
+import { favoriteBtn, favoritesContainer } from "../../index.js";
+
+const deleteBtn = document.getElementById("deletee-btn");
+deleteBtn.addEventListener("click", () => {
+  favoritesContainer.innerHTML = "";
+});
 
 function toggleFavorite(quote, btn, container) {
   quote.isFavorite = !quote.isFavorite;
@@ -37,7 +42,9 @@ function showFavoriteCard(quote, favoritesContainer) {
   favoriteCard.innerHTML = `
         <p>${text}</p>
         <p class="author">${author}</p>
+        <button>Del</button>
       `;
+
   favoritesContainer.appendChild(favoriteCard);
 }
 
