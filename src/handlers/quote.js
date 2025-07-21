@@ -1,9 +1,10 @@
 import { handlFavorite } from "./favorite.js";
-import { ganerateRandomIndex } from "../utils.js";
+import { ganerateRandomIndex } from "../utils/math.js";
 
 function hendelQuote(quotes, setCurrantQuote) {
   const randomQuote = chooseRandomQuote(quotes);
   setCurrantQuote(randomQuote);
+
   displayQuote(randomQuote);
 }
 
