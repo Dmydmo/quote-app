@@ -1,11 +1,12 @@
 import { quoteFavoriteBtn } from "../../index.js";
 
-function toggleFavorite(quote, btn, container) {
-  quote.isFavorite = !quote.isFavorite; /*ошибка */
+function toggleFavorite(quote, setCurrantQuote, btn, container) {
+  const showIdToggleFavorits = true;
+  setCurrantQuote(quote, showIdToggleFavorits);
   togglFavoriteBtnIcon(quote.isFavorite, btn);
 
   if (quote.isFavorite) {
-    showFavoriteCard(quote, container);
+    showFavoriteCard(quote, setCurrantQuote, container);
   } else {
     removeFevoriteCard(quote.id);
   }
@@ -29,8 +30,10 @@ function hideFavoriteBtn() {
   quoteFavoriteBtn.style.display = "none";
 }
 
-function removeFavoriteQuote(quote) {
-  quote.isFavorite = false;
+function removeFavoriteQuote(quote, setCurrantQuote) {
+  const showIdToggleFavorits = true;
+  setCurrantQuote(quote, showIdToggleFavorits);
+
   removeFevoriteCard(quote.id);
   const currentQuote = document.querySelector("[data-current-quote-id]");
 
@@ -40,7 +43,7 @@ function removeFavoriteQuote(quote) {
   }
 }
 
-function showFavoriteCard(quote, favoritesContainer) {
+function showFavoriteCard(quote, setCurrantQuote, container) {
   const { id, text, author } = quote;
   const favoriteCard = document.createElement("div");
   favoriteCard.classList.add("favorite-card");
@@ -52,10 +55,12 @@ function showFavoriteCard(quote, favoritesContainer) {
         </div>
         <button class="btn btn-danger">Remove from favorite <i class="far fa-trash-alt"></i></button>
       `;
-  favoritesContainer.appendChild(favoriteCard);
+  container.appendChild(favoriteCard);
 
   const remuveButton = favoriteCard.querySelector(".btn-danger");
-  remuveButton.addEventListener("click", () => removeFavoriteQuote(quote));
+  remuveButton.addEventListener("click", () =>
+    removeFavoriteQuote(quote, setCurrantQuote)
+  );
 }
 
 function removeFevoriteCard(id) {
@@ -65,4 +70,4 @@ function removeFevoriteCard(id) {
   }
 }
 
-export { handlFavorite, toggleFavorite, hideFavoriteBtn };
+export { handlFavorite, toggleFavorite, hideFavoriteBtn, showFavoriteCard };

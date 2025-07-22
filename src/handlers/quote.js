@@ -1,10 +1,13 @@
 import { handlFavorite } from "./favorite.js";
 import { ganerateRandomIndex } from "../utils/math.js";
 
-function hendelQuote(quotes, setCurrantQuote) {
+function hendelQuote(quotes, favoriteQuotes, setCurrantQuote) {
   const randomQuote = chooseRandomQuote(quotes);
-  setCurrantQuote(randomQuote);
+  if (favoriteQuotes.find((quote) => quote.id === randomQuote.id)) {
+    randomQuote.isFavorite = true;
+  }
 
+  setCurrantQuote(randomQuote);
   displayQuote(randomQuote);
 }
 
@@ -24,4 +27,11 @@ function chooseRandomQuote(quotes) {
   const randomIndex = ganerateRandomIndex(quotes.length);
   return quotes[randomIndex];
 }
-export { hendelQuote };
+
+function findQuoteId(quotes, id) {
+  return quotes.find((quote) => {
+    quote.id === id;
+  });
+}
+
+export { hendelQuote, displayQuote, findQuoteId };
