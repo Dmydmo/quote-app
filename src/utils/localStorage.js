@@ -17,6 +17,7 @@ function localStorageGetItem(key) {
   try {
     return JSON.parse(value);
   } catch {
+    s;
     return value;
   }
 }

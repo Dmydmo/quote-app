@@ -1,49 +1,24 @@
-import { quoteFavoriteBtn } from "../../index.js";
+import { quoteFavoriteBtn, removeFavoriteQuote } from "../../index.js";
 
-function toggleFavorite(quote, setCurrantQuote, btn, container) {
-  const showIdToggleFavorits = true;
-  setCurrantQuote(quote, showIdToggleFavorits);
-  togglFavoriteBtnIcon(quote.isFavorite, btn);
-
-  if (quote.isFavorite) {
-    showFavoriteCard(quote, setCurrantQuote, container);
-  } else {
-    removeFevoriteCard(quote.id);
-  }
+function toggleFavoriteCard(quote, container) {
+  quote.isFavorite
+    ? showFavoriteCard(quote, container)
+    : removeFevoriteCard(quote.id);
 }
 
-function handlFavorite(isFavorite) {
-  showFavoriteBtn(quoteFavoriteBtn);
-  togglFavoriteBtnIcon(isFavorite);
-}
-
-function togglFavoriteBtnIcon(isFavorite) {
-  quoteFavoriteBtn.classList.toggle("fa", isFavorite);
-  quoteFavoriteBtn.classList.toggle("far", !isFavorite);
-}
-
-function showFavoriteBtn() {
-  quoteFavoriteBtn.style.display = "inline-block";
+function showFavoriteBtn(isFavorite) {
+  const btn = quoteFavoriteBtn;
+  if (btn.style.display === "none")
+    quoteFavoriteBtn.style.display = "inline-block";
+  btn.classList.toggle("fa", isFavorite);
+  btn.classList.toggle("far", !isFavorite);
 }
 
 function hideFavoriteBtn() {
   quoteFavoriteBtn.style.display = "none";
 }
 
-function removeFavoriteQuote(quote, setCurrantQuote) {
-  const showIdToggleFavorits = true;
-  setCurrantQuote(quote, showIdToggleFavorits);
-
-  removeFevoriteCard(quote.id);
-  const currentQuote = document.querySelector("[data-current-quote-id]");
-
-  const currentQuoteId = currentQuote.dataset.currentQuoteId;
-  if (quote.id === currentQuoteId) {
-    togglFavoriteBtnIcon(quote.isFavorite);
-  }
-}
-
-function showFavoriteCard(quote, setCurrantQuote, container) {
+function showFavoriteCard(quote, container) {
   const { id, text, author } = quote;
   const favoriteCard = document.createElement("div");
   favoriteCard.classList.add("favorite-card");
@@ -56,18 +31,19 @@ function showFavoriteCard(quote, setCurrantQuote, container) {
         <button class="btn btn-danger">Remove from favorite <i class="far fa-trash-alt"></i></button>
       `;
   container.appendChild(favoriteCard);
-
   const remuveButton = favoriteCard.querySelector(".btn-danger");
-  remuveButton.addEventListener("click", () =>
-    removeFavoriteQuote(quote, setCurrantQuote)
-  );
+  remuveButton.addEventListener("click", () => removeFavoriteQuote(id));
 }
 
 function removeFevoriteCard(id) {
   const card = document.querySelector(`[data-favorite-quote-id="${id}"]`);
-  if (card) {
-    card.remove();
-  }
+  if (card) card.remove();
 }
 
-export { handlFavorite, toggleFavorite, hideFavoriteBtn, showFavoriteCard };
+export {
+  toggleFavoriteCard,
+  hideFavoriteBtn,
+  showFavoriteCard,
+  showFavoriteBtn,
+  removeFevoriteCard,
+};
